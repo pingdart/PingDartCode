@@ -1,0 +1,68 @@
+{
+  "name": "pingcode-ollama-assistant",
+  "displayName": "PingCode Ollama Assistant",
+  "description": "Local AI coding assistant using Ollama, with inline code suggestions and a right-side chat panel that can edit your workspace.",
+  "version": "0.0.1",
+  "publisher": "your-name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pingdart/PingDartCode.git"
+  },
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:pingcode.openChat",
+    "onCommand:pingcode.explainSelection"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pingcode.openChat",
+        "title": "PingCode: Open Chat"
+      },
+      {
+        "command": "pingcode.explainSelection",
+        "title": "PingCode: Explain Selected Code"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "pingcode",
+          "title": "PingCode",
+          "icon": "resources/pingcode.svg"
+        }
+      ]
+    },
+    "views": {
+      "pingcode": [
+        {
+          "id": "pingcode.chatView",
+          "name": "PingCode Chat"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "echo \"No linter configured\"",
+    "test": "echo \"No tests yet\""
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.88.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.6.0",
+    "vsce": "^2.15.0"
+  }
+}
+
+
